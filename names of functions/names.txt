@@ -1,0 +1,4 @@
+check_len
+checkCap
+check_small
+checkNum
