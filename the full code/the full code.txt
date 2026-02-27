@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int check_len(char pass[]) {
+    int i = 0;
+    while(pass[i] != '\0') {
+        i=i+1;
+    }
+
+    if(i >= 8) {
+        return 1;
+    }
+    return 0;
+}
+
+int checkCap(char str[]) {
+    int x = 0;
+    while(str[x] != '\0') {
+        if(str[x] >= 'A' && str[x] <= 'Z') {
+            return 1;
+        }
+        x=x+1;
+    }
+    return 0;
+}
+
+int check_small(char txt[]) {
+    int index = 0;
+    int flag = 0;
+
+    while(txt[index] != '\0') {
+        if(txt[index] >= 'a' && txt[index] <= 'z') {
+            flag = 1;
+            break;
+        }
+        index=index+1;
+    }
+    return flag;
+}
+
+int checkNum(char t[]) {
+    int i = 0;
+    while(t[i] != '\0') {
+        if(t[i] >= '0' && t[i] <= '9') {
+            return 1;
+        }
+        i=i+1;
+    }
+    return 0;
+}
+
+int main() {
+    char passw[100];
+    int N, M, S, F;
+
+    printf("Enter Password: ");
+    scanf("%s", passw);
+
+    N = check_len(passw);
+    M = checkCap(passw);
+    S = check_small(passw);
+    F = checkNum(passw);
+
+    if(N == 1 && M == 1 && S == 1 && F == 1) {
+        printf("Password is GOOD!\n");
+    } else {
+        printf("Bad Password.. Try again\n");
+    }
+
+    return 0;
+}
